@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Invitación Especial</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600&family=Open+Sans:wght@300;400&family=Orbitron:wght@400;700&family=Exo+2:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600&family=Open+Sans:wght@300;400&family=Orbitron:wght@400;700&family=Exo+2:wght@500;700&family=Bangers&family=Luckiest+Guy&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
 <style>
@@ -13,8 +13,8 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:'Open Sans',sans-serif;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color:#fff;
+  background: linear-gradient(180deg, #fff8f0 0%, #f7e7ce 100%);
+  color:#5b4636;
   line-height:1.6;
   min-height:100vh;
   display:flex;
@@ -27,31 +27,31 @@ body{
 .container{max-width:900px;width:100%;position:relative;}
 
 /* ----------------------- */
-/* 🎂 INVITACIÓN CUMPLEAÑOS - ESTILO IRON MAN (Más elegante) */
+/* 🎂 INVITACIÓN CUMPLEAÑOS - ESTILO JUVENIL Y FESTIVO CON FOTO */
 /* ----------------------- */
 .cumpleanos{
   position:relative;
-  background: linear-gradient(145deg, #1a0a0a, #3a1c1c);
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 50%, #ffca3a 100%);
   color:#fff;
   text-align:center;
-  border-radius:20px;
+  border-radius:25px;
   overflow:hidden;
-  padding:60px 30px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
-  border:1px solid rgba(255,68,68,0.3);
+  padding:40px 30px;
+  box-shadow:0 15px 35px rgba(255, 107, 107, 0.3);
+  border:5px solid #ffca3a;
   transition:all 0.8s ease-in-out;
   animation:fadeIn 1.2s ease forwards;
 }
 
-/* Fondo con patrón sutil */
+/* Fondo con patrón festivo */
 .cumpleanos::before{
   content:'';
   position:absolute;
   inset:0;
   background-image: 
-    radial-gradient(circle at 20% 30%, rgba(255,0,0,0.1) 0%, transparent 20%),
-    radial-gradient(circle at 80% 70%, rgba(255,150,0,0.1) 0%, transparent 20%),
-    radial-gradient(circle at 40% 80%, rgba(255,200,0,0.1) 0%, transparent 20%);
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 20%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 20%);
   z-index:0;
   opacity:0.6;
 }
@@ -60,38 +60,77 @@ body{
 
 /* Texto */
 .titulo-cumple{
-  font-family:'Orbitron',sans-serif;
+  font-family:'Luckiest Guy', cursive;
   font-size:3rem;
-  color:#FFD700;
-  text-shadow:0 0 10px rgba(255,215,0,0.5);
-  letter-spacing:4px;
-  animation:glow 2s infinite alternate;
+  color:#fff;
+  text-shadow:3px 3px 0 #ff4757, 6px 6px 0 rgba(0,0,0,0.2);
+  letter-spacing:2px;
+  animation:bounce 2s infinite alternate;
   z-index:1;
   position:relative;
-  margin-bottom:20px;
+  margin-bottom:15px;
 }
-@keyframes glow{0%{text-shadow:0 0 10px rgba(255,215,0,0.5);}100%{text-shadow:0 0 20px rgba(255,215,0,0.8), 0 0 30px rgba(255,100,0,0.6);}}
+@keyframes bounce{0%{transform:translateY(0);}100%{transform:translateY(-10px);}}
 
 .nombre-cumple{
-  font-family:'Exo 2',sans-serif;
+  font-family:'Bangers', cursive;
   font-size:2.5rem;
-  margin:25px 0 15px;
-  color:#ffcc00;
-  text-shadow:0 0 10px rgba(255,100,0,0.5);
+  margin:15px 0;
+  color:#ffca3a;
+  text-shadow:2px 2px 0 #ff6b6b, 4px 4px 0 rgba(0,0,0,0.2);
   position:relative;
   z-index:1;
-  animation:slideIn 1s ease-out;
+  animation:swing 3s ease-in-out infinite;
+  letter-spacing: 2px;
 }
-@keyframes slideIn{from{opacity:0;transform:translateX(-50px);}to{opacity:1;transform:translateX(0);}}
+@keyframes swing{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}
+
+/* Foto de la invitación */
+.foto-invitacion {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  margin: 15px auto;
+  object-fit: cover;
+  animation: float 4s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.foto-invitacion img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.foto-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffca3a, #ff6b6b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+}
 
 .detalles-cumple{
-  background:rgba(40,20,20,0.7);
-  border:1px solid rgba(255,180,0,0.4);
-  border-radius:15px;
-  padding:25px;
-  margin:25px auto;
+  background:rgba(255, 255, 255, 0.9);
+  border:3px dashed #ff6b6b;
+  border-radius:20px;
+  padding:20px;
+  margin:20px auto;
   display:inline-block;
-  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
   z-index:1;
   position:relative;
   text-align:left;
@@ -101,11 +140,16 @@ body{
   opacity:0;
 }
 @keyframes scaleIn{from{opacity:0;transform:scale(0.8);}to{opacity:1;transform:scale(1);}}
-.detalles-cumple p{margin:12px 0;font-size:1.1rem;font-weight:500;}
+.detalles-cumple p{
+  margin:10px 0;
+  font-size:1.1rem;
+  font-weight:600;
+  color:#ff6b6b;
+}
 
 .btn-revelar{
-  background:linear-gradient(135deg,#ff8800 0%,#ffcc00 100%);
-  color:#000;
+  background:linear-gradient(135deg,#ff4757 0%,#ff6b6b 100%);
+  color:#fff;
   border:none;
   padding:15px 40px;
   font-size:18px;
@@ -113,71 +157,155 @@ body{
   cursor:pointer;
   transition:all .4s;
   font-weight:bold;
-  box-shadow:0 5px 15px rgba(255,200,0,0.5);
-  animation:float 5s ease-in-out infinite;
+  box-shadow:0 8px 20px rgba(255, 71, 87, 0.4);
+  animation:pulse 2s infinite;
   z-index:1;
   position:relative;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  margin-top: 10px;
 }
 .btn-revelar:hover{
-  background:linear-gradient(135deg,#ffcc00 0%,#ff8800 100%);
-  transform:translateY(-3px) scale(1.05);
-  box-shadow:0 8px 20px rgba(255,200,0,0.7);
+  background:linear-gradient(135deg,#ff6b6b 0%,#ff4757 100%);
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 12px 25px rgba(255, 71, 87, 0.6);
 }
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
 
-/* Iron Man */
-.ironman{
-  width:160px;
-  margin:20px 0;
-  filter:drop-shadow(0 0 15px rgba(255,100,0,0.7));
-  animation:float 4s ease-in-out infinite;
+/* Elementos decorativos */
+.globos {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.globo {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  border-radius: 50%;
+  animation: flotar 8s ease-in-out infinite;
+}
+
+.globo:nth-child(1) {
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #ff4757);
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.globo:nth-child(2) {
+  background: radial-gradient(circle at 30% 30%, #ffca3a, #ffa502);
+  top: 5%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.globo:nth-child(3) {
+  background: radial-gradient(circle at 30% 30%, #2ed573, #1e90ff);
+  bottom: 15%;
+  left: 15%;
+  animation-delay: 2s;
+}
+
+.globo:nth-child(4) {
+  background: radial-gradient(circle at 30% 30%, #ff9ff3, #f368e0);
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+@keyframes flotar {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* Divider festivo */
+.divider-cumple {
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ffca3a, #ff6b6b, #ffca3a, transparent);
+  margin: 15px auto;
+  border-radius: 2px;
 }
 
 /* ----------------------- */
-/* ✝ INVITACIÓN PRIMERA COMUNIÓN (Más elegante y suave) */
+/* ✝ INVITACIÓN PRIMERA COMUNIÓN (Estilo elegante y tradicional) */
 /* ----------------------- */
 .comunion{
   display:none;
   opacity:0;
   position:relative;
   background:linear-gradient(180deg,#fffef8 0%,#f9f5ee 100%);
-  color:#4b3b2a;
+  color:#5b4636;
   border-radius:15px;
   overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
-  padding:0;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  padding:30px 20px;
   transition:opacity 0.8s ease-out;
+  text-align: center;
 }
 
-.comunion::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(212,175,55,0.1) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(212,175,55,0.1) 0%, transparent 20%);
-  z-index:0;
-  pointer-events:none;
+.comunion h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #a67c52;
+  margin-bottom: 10px;
+  animation: fadeInDown 2s;
 }
 
-.header{
-  background:linear-gradient(135deg,#a58564 0%,#d4af37 100%);
-  color:white;
-  padding:40px 20px;
-  text-align:center;
-  position:relative;
-  z-index:1;
-  animation:slideDown 1s ease-out;
+.comunion h2 {
+  font-size: 1.4em;
+  color: #5b4636;
+  margin-top: 0;
+  animation: fadeIn 3s;
 }
-@keyframes slideDown{from{opacity:0;transform:translateY(-50px);}to{opacity:1;transform:translateY(0);}}
 
-.cruz{font-size:70px;margin-bottom:10px;opacity:.9;text-shadow:1px 1px 3px rgba(0,0,0,0.3);}
-.titulo{font-family:'Cinzel',serif;font-size:30px;letter-spacing:3px;}
-.subtitulo{font-family:'Great Vibes',cursive;font-size:45px;margin-top:10px;font-weight:400;}
-.nombre{font-size:40px;font-weight:600;margin:15px 0;text-shadow:1px 1px 5px rgba(0,0,0,0.4);animation:nameGlow 2s infinite alternate;}
-@keyframes nameGlow{0%{opacity:.8;}100%{opacity:1;}}
-.fecha{font-size:22px;margin-top:15px;display:flex;align-items:center;justify-content:center;gap:10px;}
-.content{padding:40px;position:relative;z-index:1;}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.details {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 20px 0;
+  animation: fadeInUp 3s;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mensaje-final {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2em;
+  color: #a67c52;
+  margin-top: 30px;
+  animation: pulse-comunion 3s infinite;
+}
+
+@keyframes pulse-comunion {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.content{padding:20px;position:relative;z-index:1;}
 
 .eventos{display:flex;flex-wrap:wrap;gap:25px;margin:30px 0;}
 .evento{
@@ -187,33 +315,33 @@ body{
   padding:25px;
   border-radius:12px;
   border-left:5px solid #d4af37;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
   transition:transform 0.3s ease;
 }
-.evento:hover{transform:translateY(-5px);box-shadow:0 6px 18px rgba(0,0,0,0.15);}
+.evento:hover{transform:translateY(-5px);box-shadow:0 6px 18px rgba(0,0,0,0.12);}
 .evento h3{color:#8b6b4c;margin-bottom:15px;font-family:'Cinzel',serif;font-size:1.4rem;}
 
-.mapa-container{margin:30px 0;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+.mapa-container{margin:30px 0;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
 #mapa{height:400px;width:100%;}
 .leyenda-mapa{background:#f8f6f0;padding:15px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;font-weight:500;}
 .color-marcador{width:15px;height:15px;border-radius:50%;display:inline-block;margin-right:5px;}
 .marcador-iglesia{background-color:#e74c3c;}
 .marcador-salon{background-color:#3498db;}
-.confirmacion{text-align:center;margin:30px 0;padding:30px;background:#f8f6f0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
-.mensaje-asistencia {
-  font-size: 22px;
-  color: #8b6b4c;
-  font-family: 'Great Vibes', cursive;
-  margin: 20px 0;
-  text-align: center;
-  animation: fadeIn 2s ease;
-}
-.mensaje-final{text-align:center;font-style:italic;margin:20px 0;color:#666;font-size:18px;}
-.footer{text-align:center;padding:20px;color:#888;font-size:14px;border-top:1px solid #eee;}
 
 .confirmacion{text-align:center;margin:30px 0;padding:30px;background:#f8f6f0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
-.btn-confirmar:hover{background:#b8941f;transform:translateY(-3px);box-shadow:0 6px 15px rgba(212, 175, 55, 0.6);}
-.mensaje-final{text-align:center;font-style:italic;margin:20px 0;color:#666;font-size:18px;}
+.btn-confirmar{
+  background:linear-gradient(135deg,#d4af37 0%,#b8941f 100%);
+  color:white;
+  border:none;
+  padding:15px 40px;
+  font-size:18px;
+  border-radius:50px;
+  cursor:pointer;
+  transition:all .4s;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(212, 175, 55, 0.3);
+}
+.btn-confirmar:hover{background:#b8941f;transform:translateY(-3px);box-shadow:0 6px 15px rgba(212, 175, 55, 0.4);}
 .footer{text-align:center;padding:20px;color:#888;font-size:14px;border-top:1px solid #eee;}
 
 /* Control de música */
@@ -223,7 +351,7 @@ body{
   color:white;border-radius:50%;width:50px;height:50px;
   display:flex;align-items:center;justify-content:center;
   font-size:24px;cursor:pointer;transition:all .3s;
-  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 .music-control:hover{transform:scale(1.1) rotate(5deg);}
 .music-on{animation:rotar 3s linear infinite;}
@@ -255,52 +383,110 @@ body{
   100% { opacity: 0; top: 30px; }
 }
 
+/* Confeti - SOLO para cumpleaños */
+.confetti-cumple {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+  display: block;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f5a623;
+  opacity: 0.8;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+  }
+}
+
 /* Responsive */
 @media(max-width:768px){
-  .titulo-cumple{font-size:2.2rem;}
-  .nombre-cumple{font-size:1.8rem;}
-  .titulo{font-size:24px;}
-  .subtitulo{font-size:36px;}
-  .nombre{font-size:30px;}
+  .titulo-cumple{font-size:2.5rem;}
+  .nombre-cumple{font-size:2rem;}
+  .foto-invitacion{width: 180px; height: 180px;}
+  .comunion h1{font-size:2.5em;}
+  .comunion h2{font-size:1.2em;}
   .content{padding:20px;}
   #mapa{height:300px;}
+  .eventos{flex-direction:column;}
+  .globos{display:none;} /* Ocultar globos en móviles para mejor rendimiento */
 }
 </style>
 </head>
 <body>
+
+<div class="confetti-cumple" id="confettiCumple"></div>
 
 <div class="music-control" id="musicControl" title="Reproducir / Pausar música"><i class="fas fa-music"></i></div>
 
 <div class="container">
 
   <div class="invitacion-card cumpleanos" id="cumpleanos">
-    <h1 class="titulo-cumple">¡INVITACIÓN ESPECIAL!</h1>
-    <div class="nombre-cumple">Carlos Manuel Mendoza Bravo</div>
-    <img class="ironman" src="imagenes/cum.jpg" alt="Iron Man">
-    <div class="detalles-cumple">
-      <p>📅 <i class="fas fa-calendar-alt" style="color:#ff6600;"></i> <strong>Sábado, 22 de Noviembre de 2025</strong></p>
-      <p>⏰ <i class="fas fa-clock" style="color:#ff6600;"></i> <strong>3:00 PM</strong></p>
-      <p>📍 <i class="fas fa-map-marker-alt" style="color:#ff6600;"></i> <strong>Salón de Eventos "H.LUNA"</strong></p>
-      <p>🏠 <i class="fas fa-home" style="color:#ff6600;"></i> <strong>Calle 6 Sur No. 8917, Col. 16 de Septiembre Sur</strong></p>
+    <div class="globos">
+      <div class="globo"></div>
+      <div class="globo"></div>
+      <div class="globo"></div>
+      <div class="globo"></div>
     </div>
-    <p style="font-size:18px;margin:20px 0;">¡Prepárate para una tarde de héroes y diversión!</p>
-    <button class="btn-revelar" id="btnRevelar"><i class="fas fa-gift"></i> Ver Sorpresa</button>
+    
+    <h1 class="titulo-cumple">¡FELIZ CUMPLEAÑOS!</h1>
+    <div class="nombre-cumple">Carlos Manuel</div>
+    
+    <!-- Foto de la invitación -->
+    <div class="foto-invitacion">
+      <!-- Reemplaza la siguiente línea con tu imagen real -->
+      <div class="foto-placeholder">
+         <img src="imagenes/cum.jpg" alt="Invitación de Cumpleaños">
+      </div>
+      <!-- Para usar tu imagen, descomenta la línea siguiente y comenta la de arriba -->
+      <!-- <img src="imagenes/cum.jpg" alt="Invitación de Cumpleaños"> -->
+    </div>
+    
+    <div class="divider-cumple"></div>
+    
+    <div class="detalles-cumple">
+      <p>🎉 <strong>¡TE ESPERAMOS!</strong></p>
+      <p>📅 <strong>Sábado, 22 de Noviembre de 2025</strong></p>
+      <p>⏰ <strong>3:00 PM</strong></p>
+      <p>📍 <strong>Salón de Eventos "H.LUNA"</strong></p>
+    </div>
+    
+    <p style="font-size:18px;margin:15px 0;color:#fff;font-weight:bold;text-shadow:1px 1px 2px rgba(0,0,0,0.3);">
+      ¡Prepárate para una tarde épica de héroes, diversión y celebración!
+    </p>
+    
+    <button class="btn-revelar" id="btnRevelar">
+      <i class="fas fa-gift"></i> VER UBICACION
+    </button>
   </div>
 
   <div class="invitacion-card comunion" id="comunion">
-    <div class="header">
-      <div class="cruz">†</div>
-      <h1 class="titulo">INVITACIÓN ESPECIAL</h1>
-      <h2 class="subtitulo">Primera Comunión</h2>
-      <div class="nombre">Daniela Emireth Mendoza Bravo</div>
-      <div class="fecha"><span><i class="fas fa-calendar-check"></i></span><span>Sábado, 22 de Noviembre de 2025</span></div>
+    <h1>Primera Comunión</h1>
+    <h2>De nuestra querida hija, <br><strong>Daniela Emireth Mendoza Bravo</strong></h2>
+    <div class="divider"></div>
+
+    <div class="details">
+      <p>Nos llena de alegría invitarte a compartir este día tan especial con nosotros.</p>
     </div>
 
     <div class="content">
-      <p style="text-align:center;font-size:18px;margin-bottom:20px;">
-        "Jesús dijo: Dejad a los niños venir a mí, y no se lo impidáis; porque de los tales es el reino de los cielos"<br><strong>- Mateo 19:14</strong>
-      </p>
-
       <div class="eventos">
         <div class="evento">
           <h3><i class="fas fa-church"></i> Ceremonia Religiosa</h3>
@@ -326,17 +512,14 @@ body{
         </div>
       </div>
 
-       <div class="confirmacion">
+      <div class="confirmacion">
         <h3>Esperamos contar con tu presencia</h3>
         <div class="mensaje-asistencia">
           "Será un honor compartir este día tan especial contigo"
         </div>
       </div>
 
-      <div class="mensaje-final">
-        <p>Tu presencia será nuestro mejor regalo <i class="fas fa-heart" style="color:#d4af37;"></i></p>
-        <p>Con la bendición de Dios y nuestros padres</p>
-      </div>
+      <p class="mensaje-final">¡Esperamos contar con tu presencia!</p>
     </div>
     <div class="footer">Invitación Digital - Primera Comunión de Daniela</div>
   </div>
@@ -358,10 +541,14 @@ const btnRevelar = document.getElementById('btnRevelar');
 const musicControl = document.getElementById('musicControl');
 const musicaCumple = document.getElementById('musicaCumpleanos');
 const musicaComunion = document.getElementById('musicaComunion');
+const confettiCumple = document.getElementById('confettiCumple');
 let musicaActual = musicaCumple;
-let musicaActiva = false; // Inicialmente desactivada
+let musicaActiva = false;
 let mapaCargado = false;
 let usuarioInteractuo = false;
+
+// Iniciar confeti para cumpleaños
+iniciarConfetiCumple();
 
 // Mostrar mensaje de interacción
 function mostrarMensajeInteraccion() {
@@ -394,7 +581,6 @@ function iniciarMusica() {
 
 // Control música
 musicControl.addEventListener('click', () => {
-  // Asegurar que el usuario ha interactuado
   if (!usuarioInteractuo) {
     usuarioInteractuo = true;
   }
@@ -418,36 +604,37 @@ musicControl.addEventListener('click', () => {
 
 // Revelar Comunión
 btnRevelar.addEventListener('click', () => {
-  // Asegurar que el usuario ha interactuado
   if (!usuarioInteractuo) {
     usuarioInteractuo = true;
   }
   
-  // Transición elegante para el cumpleaños
+  // Detener confeti de cumpleaños
+  detenerConfeti();
+  
+  // Transición para el cumpleaños
   cumpleanosCard.style.transform = 'translateY(-50px) scale(0.8)';
   cumpleanosCard.style.opacity = '0';
   
   setTimeout(() => {
     cumpleanosCard.style.display = 'none';
     comunionCard.style.display = 'block';
-    // Muestra la comunión con un pequeño retraso
+    
     setTimeout(() => {
       comunionCard.style.opacity = '1';
     }, 100); 
 
     cambiarMusica();
 
-    // Carga el mapa solo una vez
     if (!mapaCargado) {
       initMap();
       mapaCargado = true;
     }
-  }, 800); // Espera un poco más para la transición
+  }, 800);
 });
 
 function cambiarMusica() {
   musicaCumple.pause();
-  musicaCumple.currentTime = 0; // Reinicia la música de cumpleaños
+  musicaCumple.currentTime = 0;
   musicaActual = musicaComunion;
   
   if (musicaActiva) {
@@ -457,16 +644,48 @@ function cambiarMusica() {
   }
 }
 
+// Confeti para cumpleaños
+function crearConfetiCumple() {
+  for (let i = 0; i < 60; i++) {
+    const piece = document.createElement('div');
+    piece.classList.add('confetti-piece');
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+    piece.style.width = piece.style.height = Math.random() * 8 + 5 + 'px';
+    piece.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    piece.style.animationDelay = Math.random() * 5 + 's';
+    confettiCumple.appendChild(piece);
+
+    setTimeout(() => {
+      if (piece.parentNode) {
+        piece.parentNode.removeChild(piece);
+      }
+    }, 8000);
+  }
+}
+
+function iniciarConfetiCumple() {
+  confettiCumple.style.display = 'block';
+  crearConfetiCumple();
+  setInterval(crearConfetiCumple, 4000);
+}
+
+function detenerConfeti() {
+  confettiCumple.style.display = 'none';
+  // Limpiar todos los elementos de confeti
+  while (confettiCumple.firstChild) {
+    confettiCumple.removeChild(confettiCumple.firstChild);
+  }
+}
+
 function initMap() {
   const iglesia = [19.055543586030872, -98.16731613383149];
   const salon = [18.99436672013305, -98.2184132477168];
   
-  // Asegura que el mapa se inicialice correctamente
   if (document.getElementById('mapa')) {
     const map = L.map('mapa').setView([(iglesia[0] + salon[0]) / 2, (iglesia[1] + salon[1]) / 2], 12);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '© OpenStreetMap'}).addTo(map);
 
-    // Marcador de Iglesia (rojo)
     const iconIglesia = L.divIcon({
       className: 'custom-div-icon', 
       html: '<i class="fas fa-church fa-2x" style="color:#e74c3c;"></i>', 
@@ -475,7 +694,6 @@ function initMap() {
     });
     const m1 = L.marker(iglesia, {icon: iconIglesia}).addTo(map).bindPopup('⛪ Ceremonia Religiosa');
     
-    // Marcador de Salón (azul)
     const iconSalon = L.divIcon({
       className: 'custom-div-icon', 
       html: '<i class="fas fa-cocktail fa-2x" style="color:#3498db;"></i>', 
@@ -506,18 +724,16 @@ window.addEventListener('load', () => {
 
 // Verificar si los archivos de audio están disponibles
 window.addEventListener('load', () => {
-  // Verificar archivo de cumpleaños
-  fetch('audio/cumpleaños.mp3')
+  fetch('audio/cumpleaños1.mp3')
     .then(response => {
       if (!response.ok) {
-        console.warn('El archivo audio/cumpleaños.mp3 no se encuentra o no es accesible');
+        console.warn('El archivo audio/cumpleaños1.mp3 no se encuentra o no es accesible');
       }
     })
     .catch(error => {
       console.warn('Error al verificar audio/cumpleaños1.mp3:', error);
     });
   
-  // Verificar archivo de comunión
   fetch('audio/comunion.mp3')
     .then(response => {
       if (!response.ok) {
