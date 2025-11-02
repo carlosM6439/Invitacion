@@ -386,7 +386,55 @@ body{
 
 .mapa-container{margin:30px 0;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
 #mapa{height:400px;width:100%;}
-.leyenda-mapa{background:#f8f6f0;padding:15px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;font-weight:500;}
+.leyenda-mapa{
+  background:#f8f6f0;
+  padding:15px;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  font-weight:500;
+}
+
+/* Estilos para los popups personalizados */
+.ventana-flotante {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 2px solid #d4af37;
+  max-width: 200px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ventana-flotante:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #fff, #f9f5ee);
+}
+
+.btn-como-llegar {
+  background: linear-gradient(135deg, #d4af37, #b8941f);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.btn-como-llegar:hover {
+  background: linear-gradient(135deg, #b8941f, #a67c52);
+  transform: translateY(-2px);
+}
+
 .color-marcador{width:15px;height:15px;border-radius:50%;display:inline-block;margin-right:5px;}
 .marcador-iglesia{background-color:#e74c3c;}
 .marcador-salon{background-color:#3498db;}
@@ -528,7 +576,6 @@ body{
       <p>🎉 <strong>¡TE ESPERAMOS!</strong></p>
       <p>📅 <strong>Sábado, 22 de Noviembre de 2025</strong></p>
       <p>⏰ <strong>3:00 PM</strong></p>
-      <p>📍 <strong>Salón de Eventos "H.LUNA"</strong></p>
     </div>
     
     <p style="font-size:18px;margin:15px 0;color:#fff;font-weight:bold;text-shadow:1px 1px 2px rgba(0,0,0,0.3);">
@@ -552,7 +599,7 @@ body{
 
   <div class="invitacion-card comunion" id="comunion">
     <h1>Primera Comunión</h1>
-    <h2>De nuestra querida hija, <br><strong>Daniela Emireth Mendoza Bravo</strong></h2>
+    <h2>De nuestra querida hija, <br><strong>Daniela Emireth</strong></h2>
     <div class="divider"></div>
 
     <div class="details">
@@ -566,14 +613,12 @@ body{
           <p><strong>Hora:</strong> 10:00 AM</p>
           <p><strong>Lugar:</strong> Parroquia Santa María Madre de Dios</p>
           <p><strong>Dirección:</strong> Carril de la Rosa Manzana y 50 Norte, Diez de Mayo 72270</p>
-          <p><strong>Código:</strong> Formal</p>
         </div>
         <div class="evento">
           <h3><i class="fas fa-cocktail"></i> Recepción</h3>
           <p><strong>Hora:</strong> 3:00 PM</p>
           <p><strong>Lugar:</strong> Salón de Eventos "H.LUNA"</p>
           <p><strong>Dirección:</strong> Calle 6 Sur No. 8917, Col. 16 de Septiembre Sur</p>
-          <p><strong>Código:</strong> Elegante</p>
         </div>
       </div>
 
@@ -619,6 +664,10 @@ let musicaActual = musicaCumple;
 let musicaActiva = false;
 let mapaCargado = false;
 let usuarioInteractuo = false;
+
+// URLs de Google Maps
+const urlIglesia = "https://www.google.com/maps/place/Parroquia+Sta.+Mar%C3%ADa+Madre+de+Dios/@19.0555455,-98.1698984,17z/data=!4m16!1m9!3m8!1s0x85cfc1ad5a912adf:0xb3bccc0bd93c0097!2sParroquia+Sta.+Mar%C3%ADa+Madre+de+Dios!8m2!3d19.0555404!4d-98.1673235!9m1!1b1!16s%2Fg%2F1pxwrm_8_!3m5!1s0x85cfc1ad5a912adf:0xb3bccc0bd93c0097!8m2!3d19.0555404!4d-98.1673235!16s%2Fg%2F1pxwrm_8_?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D";
+const urlSalon = "https://www.google.com/maps/place/Sal%C3%B3n+Jard%C3%ADn+H.+Luna/@18.9941588,-98.2209345,17z/data=!3m1!4b1!4m6!3m5!1s0x85cfbf14d99ea017:0x58ef51c2f825a07e!8m2!3d18.9941537!4d-98.2183596!16s%2Fg%2F11g1qk0rtb?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D";
 
 // Iniciar confeti para cumpleaños
 iniciarConfetiCumple();
@@ -765,7 +814,6 @@ function initMap() {
       iconSize: [30, 42], 
       iconAnchor: [15, 42]
     });
-    const m1 = L.marker(iglesia, {icon: iconIglesia}).addTo(map).bindPopup('⛪ Ceremonia Religiosa');
     
     const iconSalon = L.divIcon({
       className: 'custom-div-icon', 
@@ -773,16 +821,41 @@ function initMap() {
       iconSize: [30, 42], 
       iconAnchor: [15, 42]
     });
-    const m2 = L.marker(salon, {icon: iconSalon}).addTo(map).bindPopup('🎉 Recepción');
+
+    // Función para crear ventana flotante clickeable
+    function crearVentanaClickeable(titulo, url) {
+      const ventana = document.createElement('div');
+      ventana.className = 'ventana-flotante';
+      ventana.innerHTML = `
+        <button class="btn-como-llegar" onclick="window.open('${url}', '_blank')">
+          <i class="fas fa-map-marker-alt"></i> ${titulo}
+        </button>
+      `;
+      // Hacer toda la ventana clickeable
+      ventana.addEventListener('click', function(e) {
+        if (e.target.tagName !== 'BUTTON') {
+          window.open(url, '_blank');
+        }
+      });
+      return ventana;
+    }
+
+    // Marcador de Iglesia con ventana flotante clickeable
+    const m1 = L.marker(iglesia, {icon: iconIglesia}).addTo(map)
+      .bindPopup(crearVentanaClickeable('¿Cómo llegar?', urlIglesia))
+      .on('mouseover', function(e) {
+        this.openPopup();
+      });
+
+    // Marcador de Salón con ventana flotante clickeable
+    const m2 = L.marker(salon, {icon: iconSalon}).addTo(map)
+      .bindPopup(crearVentanaClickeable('¿Cómo llegar?', urlSalon))
+      .on('mouseover', function(e) {
+        this.openPopup();
+      });
     
     map.fitBounds(L.featureGroup([m1, m2]).getBounds().pad(0.2));
   }
-}
-
-function confirmarAsistencia() {
-  const tel = "2227944150";
-  const msg = "¡Hola! Confirmo mi asistencia a la Primera Comunión de Daniela. Gracias por la invitación.";
-  window.open(`https://wa.me/${tel}?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 // Eventos para detectar interacción del usuario
