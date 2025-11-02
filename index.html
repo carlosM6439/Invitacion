@@ -147,31 +147,94 @@ body{
   color:#ff6b6b;
 }
 
+/* Señales para el botón */
+.señal-boton {
+  position: relative;
+  margin: 25px 0 15px;
+  text-align: center;
+}
+
+.flecha-animada {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 0 #ff4757;
+  animation: apuntar 2s infinite;
+  margin-bottom: 10px;
+  display: block;
+}
+
+@keyframes apuntar {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-10px) translateX(5px); }
+}
+
+.mensaje-boton {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 30px;
+  display: inline-block;
+  animation: parpadeo 3s infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
 .btn-revelar{
   background:linear-gradient(135deg,#ff4757 0%,#ff6b6b 100%);
   color:#fff;
   border:none;
-  padding:15px 40px;
-  font-size:18px;
+  padding:18px 45px;
+  font-size:20px;
   border-radius:50px;
   cursor:pointer;
   transition:all .4s;
   font-weight:bold;
   box-shadow:0 8px 20px rgba(255, 71, 87, 0.4);
-  animation:pulse 2s infinite;
+  animation:pulse 2s infinite, brillo 3s infinite;
   z-index:1;
   position:relative;
   font-family: 'Bangers', cursive;
   letter-spacing: 1px;
-  font-size: 1.3rem;
   margin-top: 10px;
+  border: 3px solid #fff;
+  position: relative;
+  overflow: hidden;
 }
+
+.btn-revelar::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  animation: brillo-borde 2s infinite;
+}
+
+@keyframes brillo-borde {
+  0% { transform: rotate(45deg) translateX(-100%); }
+  100% { transform: rotate(45deg) translateX(100%); }
+}
+
+@keyframes brillo {
+  0%, 100% { box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4); }
+  50% { box-shadow: 0 8px 30px rgba(255, 71, 87, 0.8), 0 0 20px rgba(255, 255, 255, 0.5); }
+}
+
 .btn-revelar:hover{
   background:linear-gradient(135deg,#ff6b6b 0%,#ff4757 100%);
   transform:translateY(-5px) scale(1.05);
   box-shadow:0 12px 25px rgba(255, 71, 87, 0.6);
+  animation: none;
 }
-@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
 
 /* Elementos decorativos */
 .globos {
@@ -427,6 +490,8 @@ body{
   #mapa{height:300px;}
   .eventos{flex-direction:column;}
   .globos{display:none;} /* Ocultar globos en móviles para mejor rendimiento */
+  .flecha-animada{font-size: 2rem;}
+  .mensaje-boton{font-size: 1rem;}
 }
 </style>
 </head>
@@ -453,10 +518,8 @@ body{
     <div class="foto-invitacion">
       <!-- Reemplaza la siguiente línea con tu imagen real -->
       <div class="foto-placeholder">
-         <img src="imagenes/cum.jpg" alt="Invitación de Cumpleaños">
+        <img src="imagenes/cum.jpg" alt="Invitación de Cumpleaños">
       </div>
-      <!-- Para usar tu imagen, descomenta la línea siguiente y comenta la de arriba -->
-      <!-- <img src="imagenes/cum.jpg" alt="Invitación de Cumpleaños"> -->
     </div>
     
     <div class="divider-cumple"></div>
@@ -472,8 +535,18 @@ body{
       ¡Prepárate para una tarde épica de héroes, diversión y celebración!
     </p>
     
+    <!-- Señales para el botón -->
+    <div class="señal-boton">
+      <div class="flecha-animada">
+        <i class="fas fa-hand-point-down"></i>
+      </div>
+      <div class="mensaje-boton">
+        ¡Haz clic aquí para ver la ubicación!
+      </div>
+    </div>
+    
     <button class="btn-revelar" id="btnRevelar">
-      <i class="fas fa-gift"></i> VER UBICACION
+      <i class="fas fa-map-marker-alt"></i> VER UBICACIÓN
     </button>
   </div>
 
