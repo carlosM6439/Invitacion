@@ -27,9 +27,216 @@ body{
 .container{max-width:900px;width:100%;position:relative;}
 
 /* ----------------------- */
+/* ✝ INVITACIÓN PRIMERA COMUNIÓN (Estilo elegante y tradicional) */
+/* ----------------------- */
+.comunion{
+  position:relative;
+  background:linear-gradient(180deg,#fffef8 0%,#f9f5ee 100%);
+  color:#5b4636;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  padding:30px 20px;
+  transition:opacity 0.8s ease-out;
+  text-align: center;
+  animation:fadeIn 1.2s ease forwards;
+}
+
+.comunion h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #a67c52;
+  margin-bottom: 10px;
+  animation: fadeInDown 2s;
+}
+
+.comunion h2 {
+  font-size: 1.4em;
+  color: #5b4636;
+  margin-top: 0;
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.details {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 20px 0;
+  animation: fadeInUp 3s;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mensaje-final {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2em;
+  color: #a67c52;
+  margin-top: 30px;
+  animation: pulse-comunion 3s infinite;
+}
+
+@keyframes pulse-comunion {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.content{padding:20px;position:relative;z-index:1;}
+
+.eventos{display:flex;flex-wrap:wrap;gap:25px;margin:30px 0;}
+.evento{
+  flex:1;
+  min-width:280px;
+  background:#fffdf6;
+  padding:25px;
+  border-radius:12px;
+  border-left:5px solid #d4af37;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:transform 0.3s ease;
+}
+.evento:hover{transform:translateY(-5px);box-shadow:0 6px 18px rgba(0,0,0,0.12);}
+.evento h3{color:#8b6b4c;margin-bottom:15px;font-family:'Cinzel',serif;font-size:1.4rem;}
+
+.mapa-container{margin:30px 0;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
+#mapa{height:400px;width:100%;}
+.leyenda-mapa{
+  background:#f8f6f0;
+  padding:15px;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  font-weight:500;
+}
+
+/* Estilos para los popups personalizados */
+.ventana-flotante {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 2px solid #d4af37;
+  max-width: 200px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ventana-flotante:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #fff, #f9f5ee);
+}
+
+.btn-como-llegar {
+  background: linear-gradient(135deg, #d4af37, #b8941f);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.btn-como-llegar:hover {
+  background: linear-gradient(135deg, #b8941f, #a67c52);
+  transform: translateY(-2px);
+}
+
+.color-marcador{width:15px;height:15px;border-radius:50%;display:inline-block;margin-right:5px;}
+.marcador-iglesia{background-color:#e74c3c;}
+.marcador-salon{background-color:#3498db;}
+
+.confirmacion{text-align:center;margin:30px 0;padding:30px;background:#f8f6f0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.btn-confirmar{
+  background:linear-gradient(135deg,#d4af37 0%,#b8941f 100%);
+  color:white;
+  border:none;
+  padding:15px 40px;
+  font-size:18px;
+  border-radius:50px;
+  cursor:pointer;
+  transition:all .4s;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(212, 175, 55, 0.3);
+}
+.btn-confirmar:hover{background:#b8941f;transform:translateY(-3px);box-shadow:0 6px 15px rgba(212, 175, 55, 0.4);}
+.footer{text-align:center;padding:20px;color:#888;font-size:14px;border-top:1px solid #eee;}
+
+/* Botón para cambiar a cumpleaños */
+.btn-sorpresa{
+  background:linear-gradient(135deg,#ff6b6b 0%,#ff8e53 100%);
+  color:#fff;
+  border:none;
+  padding:18px 45px;
+  font-size:20px;
+  border-radius:50px;
+  cursor:pointer;
+  transition:all .4s;
+  font-weight:bold;
+  box-shadow:0 8px 20px rgba(255, 107, 107, 0.4);
+  animation:pulse 2s infinite, brillo 3s infinite;
+  z-index:1;
+  position:relative;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  border: 3px solid #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sorpresa::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  animation: brillo-borde 2s infinite;
+}
+
+@keyframes brillo-borde {
+  0% { transform: rotate(45deg) translateX(-100%); }
+  100% { transform: rotate(45deg) translateX(100%); }
+}
+
+@keyframes brillo {
+  0%, 100% { box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4); }
+  50% { box-shadow: 0 8px 30px rgba(255, 71, 87, 0.8), 0 0 20px rgba(255, 255, 255, 0.5); }
+}
+
+.btn-sorpresa:hover{
+  background:linear-gradient(135deg,#ff8e53 0%,#ff6b6b 100%);
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 12px 25px rgba(255, 71, 87, 0.6);
+  animation: none;
+}
+
+/* ----------------------- */
 /* 🎂 INVITACIÓN CUMPLEAÑOS - ESTILO JUVENIL Y FESTIVO CON FOTO */
 /* ----------------------- */
 .cumpleanos{
+  display:none;
+  opacity:0;
   position:relative;
   background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 50%, #ffca3a 100%);
   color:#fff;
@@ -40,7 +247,6 @@ body{
   box-shadow:0 15px 35px rgba(255, 107, 107, 0.3);
   border:5px solid #ffca3a;
   transition:all 0.8s ease-in-out;
-  animation:fadeIn 1.2s ease forwards;
 }
 
 /* Fondo con patrón festivo */
@@ -185,8 +391,8 @@ body{
   50% { opacity: 0.7; }
 }
 
-.btn-revelar{
-  background:linear-gradient(135deg,#ff4757 0%,#ff6b6b 100%);
+.btn-regresar{
+  background:linear-gradient(135deg,#3498db 0%,#2980b9 100%);
   color:#fff;
   border:none;
   padding:18px 45px;
@@ -195,8 +401,8 @@ body{
   cursor:pointer;
   transition:all .4s;
   font-weight:bold;
-  box-shadow:0 8px 20px rgba(255, 71, 87, 0.4);
-  animation:pulse 2s infinite, brillo 3s infinite;
+  box-shadow:0 8px 20px rgba(52, 152, 219, 0.4);
+  animation:pulse 2s infinite;
   z-index:1;
   position:relative;
   font-family: 'Bangers', cursive;
@@ -207,32 +413,10 @@ body{
   overflow: hidden;
 }
 
-.btn-revelar::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.1);
-  transform: rotate(45deg);
-  animation: brillo-borde 2s infinite;
-}
-
-@keyframes brillo-borde {
-  0% { transform: rotate(45deg) translateX(-100%); }
-  100% { transform: rotate(45deg) translateX(100%); }
-}
-
-@keyframes brillo {
-  0%, 100% { box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4); }
-  50% { box-shadow: 0 8px 30px rgba(255, 71, 87, 0.8), 0 0 20px rgba(255, 255, 255, 0.5); }
-}
-
-.btn-revelar:hover{
-  background:linear-gradient(135deg,#ff6b6b 0%,#ff4757 100%);
+.btn-regresar:hover{
+  background:linear-gradient(135deg,#2980b9 0%,#3498db 100%);
   transform:translateY(-5px) scale(1.05);
-  box-shadow:0 12px 25px rgba(255, 71, 87, 0.6);
+  box-shadow:0 12px 25px rgba(52, 152, 219, 0.6);
   animation: none;
 }
 
@@ -301,160 +485,6 @@ body{
   border-radius: 2px;
 }
 
-/* ----------------------- */
-/* ✝ INVITACIÓN PRIMERA COMUNIÓN (Estilo elegante y tradicional) */
-/* ----------------------- */
-.comunion{
-  display:none;
-  opacity:0;
-  position:relative;
-  background:linear-gradient(180deg,#fffef8 0%,#f9f5ee 100%);
-  color:#5b4636;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-  padding:30px 20px;
-  transition:opacity 0.8s ease-out;
-  text-align: center;
-}
-
-.comunion h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3em;
-  color: #a67c52;
-  margin-bottom: 10px;
-  animation: fadeInDown 2s;
-}
-
-.comunion h2 {
-  font-size: 1.4em;
-  color: #5b4636;
-  margin-top: 0;
-  animation: fadeIn 3s;
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.details {
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin: 20px 0;
-  animation: fadeInUp 3s;
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.mensaje-final {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2em;
-  color: #a67c52;
-  margin-top: 30px;
-  animation: pulse-comunion 3s infinite;
-}
-
-@keyframes pulse-comunion {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-
-.content{padding:20px;position:relative;z-index:1;}
-
-.eventos{display:flex;flex-wrap:wrap;gap:25px;margin:30px 0;}
-.evento{
-  flex:1;
-  min-width:280px;
-  background:#fffdf6;
-  padding:25px;
-  border-radius:12px;
-  border-left:5px solid #d4af37;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
-  transition:transform 0.3s ease;
-}
-.evento:hover{transform:translateY(-5px);box-shadow:0 6px 18px rgba(0,0,0,0.12);}
-.evento h3{color:#8b6b4c;margin-bottom:15px;font-family:'Cinzel',serif;font-size:1.4rem;}
-
-.mapa-container{margin:30px 0;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
-#mapa{height:400px;width:100%;}
-.leyenda-mapa{
-  background:#f8f6f0;
-  padding:15px;
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  flex-wrap:wrap;
-  font-weight:500;
-}
-
-/* Estilos para los popups personalizados */
-.ventana-flotante {
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  border: 2px solid #d4af37;
-  max-width: 200px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.ventana-flotante:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-  background: linear-gradient(135deg, #fff, #f9f5ee);
-}
-
-.btn-como-llegar {
-  background: linear-gradient(135deg, #d4af37, #b8941f);
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1rem;
-  width: 100%;
-}
-
-.btn-como-llegar:hover {
-  background: linear-gradient(135deg, #b8941f, #a67c52);
-  transform: translateY(-2px);
-}
-
-.color-marcador{width:15px;height:15px;border-radius:50%;display:inline-block;margin-right:5px;}
-.marcador-iglesia{background-color:#e74c3c;}
-.marcador-salon{background-color:#3498db;}
-
-.confirmacion{text-align:center;margin:30px 0;padding:30px;background:#f8f6f0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
-.btn-confirmar{
-  background:linear-gradient(135deg,#d4af37 0%,#b8941f 100%);
-  color:white;
-  border:none;
-  padding:15px 40px;
-  font-size:18px;
-  border-radius:50px;
-  cursor:pointer;
-  transition:all .4s;
-  font-weight:bold;
-  box-shadow:0 5px 15px rgba(212, 175, 55, 0.3);
-}
-.btn-confirmar:hover{background:#b8941f;transform:translateY(-3px);box-shadow:0 6px 15px rgba(212, 175, 55, 0.4);}
-.footer{text-align:center;padding:20px;color:#888;font-size:14px;border-top:1px solid #eee;}
-
 /* Control de música */
 .music-control{
   position:fixed;top:20px;right:20px;z-index:1000;
@@ -504,7 +534,7 @@ body{
   pointer-events: none;
   overflow: hidden;
   z-index: 9999;
-  display: block;
+  display: none;
 }
 
 .confetti-piece {
@@ -551,52 +581,6 @@ body{
 
 <div class="container">
 
-  <div class="invitacion-card cumpleanos" id="cumpleanos">
-    <div class="globos">
-      <div class="globo"></div>
-      <div class="globo"></div>
-      <div class="globo"></div>
-      <div class="globo"></div>
-    </div>
-    
-    <h1 class="titulo-cumple">¡FELIZ CUMPLEAÑOS!</h1>
-    <div class="nombre-cumple">Carlos Manuel</div>
-    
-    <!-- Foto de la invitación -->
-    <div class="foto-invitacion">
-      <!-- Reemplaza la siguiente línea con tu imagen real -->
-      <div class="foto-placeholder">
-        <img src="imagenes/cum.jpg" alt="Invitación de Cumpleaños">
-      </div>
-    </div>
-    
-    <div class="divider-cumple"></div>
-    
-    <div class="detalles-cumple">
-      <p>🎉 <strong>¡TE ESPERAMOS!</strong></p>
-      <p>📅 <strong>Sábado, 22 de Noviembre de 2025</strong></p>
-      <p>⏰ <strong>3:00 PM</strong></p>
-    </div>
-    
-    <p style="font-size:18px;margin:15px 0;color:#fff;font-weight:bold;text-shadow:1px 1px 2px rgba(0,0,0,0.3);">
-      ¡Prepárate para una tarde épica de héroes, diversión y celebración!
-    </p>
-    
-    <!-- Señales para el botón -->
-    <div class="señal-boton">
-      <div class="flecha-animada">
-        <i class="fas fa-hand-point-down"></i>
-      </div>
-      <div class="mensaje-boton">
-        ¡Haz clic aquí para ver la ubicación!
-      </div>
-    </div>
-    
-    <button class="btn-revelar" id="btnRevelar">
-      <i class="fas fa-map-marker-alt"></i> VER UBICACIÓN
-    </button>
-  </div>
-
   <div class="invitacion-card comunion" id="comunion">
     <h1>Primera Comunión</h1>
     <h2>De nuestra querida hija, <br><strong>Daniela Emireth</strong></h2>
@@ -637,8 +621,50 @@ body{
       </div>
 
       <p class="mensaje-final">¡Esperamos contar con tu presencia!</p>
+      
+      <!-- Botón para cambiar a cumpleaños -->
+      <button class="btn-sorpresa" id="btnSorpresa">
+        <i class="fas fa-gift"></i> VER SORPRESA
+      </button>
     </div>
     <div class="footer">Invitación Digital - Primera Comunión de Daniela</div>
+  </div>
+
+  <div class="invitacion-card cumpleanos" id="cumpleanos">
+    <div class="globos">
+      <div class="globo"></div>
+      <div class="globo"></div>
+      <div class="globo"></div>
+      <div class="globo"></div>
+    </div>
+    
+    <h1 class="titulo-cumple">¡FELIZ CUMPLEAÑOS!</h1>
+    <div class="nombre-cumple">Carlos Manuel</div>
+    
+    <!-- Foto de la invitación -->
+    <div class="foto-invitacion">
+      <!-- Reemplaza la siguiente línea con tu imagen real -->
+      <div class="foto-placeholder">
+        <img src="imagenes/cum.jpg" alt="Invitación de Cumpleaños">
+      </div>
+    </div>
+    
+    <div class="divider-cumple"></div>
+    
+    <div class="detalles-cumple">
+      <p>🎉 <strong>¡TE ESPERAMOS!</strong></p>
+      <p>📅 <strong>Sábado, 22 de Noviembre de 2025</strong></p>
+      <p>⏰ <strong>3:00 PM</strong></p>
+    </div>
+    
+    <p style="font-size:18px;margin:15px 0;color:#fff;font-weight:bold;text-shadow:1px 1px 2px rgba(0,0,0,0.3);">
+      ¡Prepárate para una tarde épica de héroes, diversión y celebración!
+    </p>
+    
+    <!-- Botón para regresar a comunión -->
+    <button class="btn-regresar" id="btnRegresar">
+      <i class="fas fa-arrow-left"></i> VOLVER
+    </button>
   </div>
 </div>
 
@@ -654,12 +680,13 @@ body{
 <script>
 const cumpleanosCard = document.getElementById('cumpleanos');
 const comunionCard = document.getElementById('comunion');
-const btnRevelar = document.getElementById('btnRevelar');
+const btnSorpresa = document.getElementById('btnSorpresa');
+const btnRegresar = document.getElementById('btnRegresar');
 const musicControl = document.getElementById('musicControl');
 const musicaCumple = document.getElementById('musicaCumpleanos');
 const musicaComunion = document.getElementById('musicaComunion');
 const confettiCumple = document.getElementById('confettiCumple');
-let musicaActual = musicaCumple;
+let musicaActual = musicaComunion;
 let musicaActiva = false;
 let mapaCargado = false;
 let usuarioInteractuo = false;
@@ -668,8 +695,13 @@ let usuarioInteractuo = false;
 const urlIglesia = "https://www.google.com/maps/place/Parroquia+Sta.+Mar%C3%ADa+Madre+de+Dios/@19.0555455,-98.1698984,17z/data=!4m16!1m9!3m8!1s0x85cfc1ad5a912adf:0xb3bccc0bd93c0097!2sParroquia+Sta.+Mar%C3%ADa+Madre+de+Dios!8m2!3d19.0555404!4d-98.1673235!9m1!1b1!16s%2Fg%2F1pxwrm_8_!3m5!1s0x85cfc1ad5a912adf:0xb3bccc0bd93c0097!8m2!3d19.0555404!4d-98.1673235!16s%2Fg%2F1pxwrm_8_?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D";
 const urlSalon = "https://www.google.com/maps/place/Sal%C3%B3n+Jard%C3%ADn+H.+Luna/@18.9941588,-98.2209345,17z/data=!3m1!4b1!4m6!3m5!1s0x85cfbf14d99ea017:0x58ef51c2f825a07e!8m2!3d18.9941537!4d-98.2183596!16s%2Fg%2F11g1qk0rtb?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D";
 
-// Iniciar confeti para cumpleaños
-iniciarConfetiCumple();
+// Inicializar el mapa al cargar la página
+window.addEventListener('load', function() {
+  if (!mapaCargado) {
+    initMap();
+    mapaCargado = true;
+  }
+});
 
 // Mostrar mensaje de interacción
 function mostrarMensajeInteraccion() {
@@ -723,12 +755,33 @@ musicControl.addEventListener('click', () => {
   }
 });
 
-// Revelar Comunión
-btnRevelar.addEventListener('click', () => {
+// Ir a cumpleaños (Sorpresa)
+btnSorpresa.addEventListener('click', () => {
   if (!usuarioInteractuo) {
     usuarioInteractuo = true;
   }
   
+  // Iniciar confeti para cumpleaños
+  iniciarConfetiCumple();
+  
+  // Transición para la comunión
+  comunionCard.style.transform = 'translateY(-50px) scale(0.8)';
+  comunionCard.style.opacity = '0';
+  
+  setTimeout(() => {
+    comunionCard.style.display = 'none';
+    cumpleanosCard.style.display = 'block';
+    
+    setTimeout(() => {
+      cumpleanosCard.style.opacity = '1';
+    }, 100); 
+
+    cambiarMusica();
+  }, 800);
+});
+
+// Regresar a comunión
+btnRegresar.addEventListener('click', () => {
   // Detener confeti de cumpleaños
   detenerConfeti();
   
@@ -744,16 +797,23 @@ btnRevelar.addEventListener('click', () => {
       comunionCard.style.opacity = '1';
     }, 100); 
 
-    cambiarMusica();
-
-    if (!mapaCargado) {
-      initMap();
-      mapaCargado = true;
-    }
+    cambiarMusicaComunion();
   }, 800);
 });
 
 function cambiarMusica() {
+  musicaComunion.pause();
+  musicaComunion.currentTime = 0;
+  musicaActual = musicaCumple;
+  
+  if (musicaActiva) {
+    musicaActual.play().catch(error => {
+      console.log("Error al cambiar música:", error);
+    });
+  }
+}
+
+function cambiarMusicaComunion() {
   musicaCumple.pause();
   musicaCumple.currentTime = 0;
   musicaActual = musicaComunion;
