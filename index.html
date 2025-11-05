@@ -179,10 +179,10 @@ body{
 .btn-confirmar:hover{background:#b8941f;transform:translateY(-3px);box-shadow:0 6px 15px rgba(212, 175, 55, 0.4);}
 .footer{text-align:center;padding:20px;color:#888;font-size:14px;border-top:1px solid #eee;}
 
-/* Botón para cambiar a cumpleaños */
+/* Botón para cambiar a cumpleaños - Estilo comunión */
 .btn-sorpresa{
-  background:linear-gradient(135deg,#ff6b6b 0%,#ff8e53 100%);
-  color:#fff;
+  background:linear-gradient(135deg,#d4af37 0%,#b8941f 100%);
+  color:white;
   border:none;
   padding:18px 45px;
   font-size:20px;
@@ -190,45 +190,21 @@ body{
   cursor:pointer;
   transition:all .4s;
   font-weight:bold;
-  box-shadow:0 8px 20px rgba(255, 107, 107, 0.4);
-  animation:pulse 2s infinite, brillo 3s infinite;
+  box-shadow:0 5px 15px rgba(212, 175, 55, 0.3);
   z-index:1;
   position:relative;
-  font-family: 'Bangers', cursive;
+  font-family: 'Cinzel', serif;
   letter-spacing: 1px;
   margin-top: 20px;
-  border: 3px solid #fff;
+  border: 2px solid #d4af37;
   position: relative;
   overflow: hidden;
 }
 
-.btn-sorpresa::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.1);
-  transform: rotate(45deg);
-  animation: brillo-borde 2s infinite;
-}
-
-@keyframes brillo-borde {
-  0% { transform: rotate(45deg) translateX(-100%); }
-  100% { transform: rotate(45deg) translateX(100%); }
-}
-
-@keyframes brillo {
-  0%, 100% { box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4); }
-  50% { box-shadow: 0 8px 30px rgba(255, 71, 87, 0.8), 0 0 20px rgba(255, 255, 255, 0.5); }
-}
-
 .btn-sorpresa:hover{
-  background:linear-gradient(135deg,#ff8e53 0%,#ff6b6b 100%);
-  transform:translateY(-5px) scale(1.05);
-  box-shadow:0 12px 25px rgba(255, 71, 87, 0.6);
-  animation: none;
+  background:linear-gradient(135deg,#b8941f 0%,#a67c52 100%);
+  transform:translateY(-3px);
+  box-shadow:0 6px 15px rgba(212, 175, 55, 0.4);
 }
 
 /* ----------------------- */
